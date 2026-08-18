@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Eloa ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #120d12;
+      color: #fff7f9;
+      overflow-x: hidden;
+    }
+    section {
+      min-height: 100vh;
+      padding: 70px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .container {
+      width: min(900px, 100%);
+      margin: auto;
+      text-align: center;
+    }
+    /* CORAÇÕES FLUTUANDO */
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      opacity: 0;
+      animation: subir 7s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .heart:nth-child(1) { left: 8%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 25%; animation-delay: 2s; }
+    .heart:nth-child(3) { left: 48%; animation-delay: 4s; }
+    .heart:nth-child(4) { left: 70%; animation-delay: 1s; }
+    .heart:nth-child(5) { left: 90%; animation-delay: 3s; }
+    @keyframes subir {
+      0% {
+        transform: translateY(0) scale(.8);
+        opacity: 0;
+      }
+      15% {
+        opacity: .7;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.4) rotate(20deg);
+        opacity: 0;
+      }
+    }
+    /* CAPA */
+    #inicio {
+      background:
+        radial-gradient(circle at top, #54233d 0%, transparent 45%),
+        linear-gradient(160deg, #120d12, #24111c);
+    }
+    .small {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      color: #e8b8c9;
+      margin-bottom: 25px;
+    }
+    h1 {
+      font-size: clamp(55px, 13vw, 110px);
+      line-height: .9;
+      margin-bottom: 25px;
+      color: #fff;
+      text-shadow: 0 0 35px rgba(255, 150, 190, .25);
+    }
+    .subtitle {
+      font-size: clamp(18px, 4vw, 25px);
+      color: #e9cbd5;
+      line-height: 1.6;
+      max-width: 650px;
+      margin: auto;
+    }
+    .scroll {
+      margin-top: 50px;
+      color: #dca5bb;
+      font-size: 14px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      50% { opacity: .45; }
+    }
+    /* GATINHOS */
+    .cats-section {
+      background: #170f15;
+    }
+    .cats {
+      position: relative;
+      width: 300px;
+      height: 190px;
+      margin: 0 auto 35px;
+    }
+    .cat {
+      position: absolute;
+      bottom: 10px;
+      width: 125px;
+      height: 125px;
+      background: #e8b9a7;
+      border-radius: 50% 50% 45% 45%;
+      box-shadow: 0 12px 25px rgba(0,0,0,.3);
+    }
+    .cat.left {
+      left: 25px;
+    }
+    .cat.right {
+      right: 25px;
+      background: #d99b8d;
+    }
+    .ear {
+      position: absolute;
+      top: -22px;
+      width: 45px;
+      height: 45px;
+      background: inherit;
+      transform: rotate(45deg);
+      border-radius: 8px;
+    }
+    .ear.one { left: 12px; }
+    .ear.two { right: 12px; }
+    .eye {
+      position: absolute;
+      top: 47px;
+      width: 9px;
+      height: 9px;
+      background: #30151f;
+      border-radius: 50%;
+    }
+    .eye.one { left: 37px; }
+    .eye.two { right: 37px; }
+    .nose {
+      position: absolute;
+      top: 65px;
+      left: calc(50% - 5px);
+      width: 10px;
+      height: 8px;
+      background: #8e4056;
+      border-radius: 50%;
+    }
+    .heart-cat {
+      position: absolute;
+      top: 82px;
+      left: calc(50% - 7px);
+      color: #7b2949;
+      font-size: 16px;
+    }
+    .love-title {
+      font-size: clamp(30px, 7vw, 52px);
+      margin-bottom: 20px;
+    }
+    .text {
+      max-width: 700px;
+      margin: auto;
+      font-size: 19px;
+      line-height: 1.9;
+      color: #e8d7dd;
+    }
+    /* HISTÓRIA */
+    #historia {
+      background: linear-gradient(#170f15, #21121b);
+    }
+    .card {
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 28px;
+      padding: 40px 30px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.25);
+      backdrop-filter: blur(8px);
+    }
+    .card p {
+      font-size: 19px;
+      line-height: 2;
+      color: #ead9df;
+      margin-bottom: 22px;
+    }
+    .highlight {
+      color: #f2b5cb;
+      font-weight: bold;
+    }
+    /* CONTADOR */
+    #tempo {
+      background:
+        radial-gradient(circle, #4b2035, #160d13 65%);
+    }
+    .counter {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 35px;
+    }
+    .time-box {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
+      padding: 22px 10px;
+    }
+    .number {
+      display: block;
+      font-size: clamp(30px, 7vw, 55px);
+      font-weight: bold;
+      color: #fff;
+    }
+    .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #d9a9bb;
+    }
+    /* DECLARAÇÃO */
+    #declaracao {
+      background: #120d12;
+    }
+    .quote {
+      font-size: clamp(23px, 5vw, 35px);
+      line-height: 1.7;
+      color: #f6e3e9;
+      margin: 30px auto;
+    }
+    .signature {
+      margin-top: 35px;
+      font-size: 24px;
+      color: #efabc4;
+    }
+    /* MÚSICA */
+    #musica {
+      background: linear-gradient(145deg, #26121e, #110b10);
+    }
+    .music-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 18px 30px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, #a7476d, #712c50);
+      box-shadow: 0 10px 30px rgba(167,71,109,.3);
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition: .3s;
+    }
+    .music-button:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+    /* FINAL */
+    #final {
+      min-height: 80vh;
+      background:
+        radial-gradient(circle at center, #57253e, transparent 55%),
+        #110a0f;
+    }
+    .final-text {
+      font-size: clamp(30px, 7vw, 58px);
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    .final-text span {
+      color: #f0a8c3;
+    }
+    .forever {
+      margin-top: 30px;
+      color: #dfc1cc;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      background: #0c080b;
+      color: #806b73;
+      font-size: 13px;
+    }
+    @media (max-width: 600px) {
+      .counter {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .card {
+        padding: 30px 20px;
+      }
+      .cat.left {
+        left: 10px;
+      }
+      .cat.right {
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- CORAÇÕES -->
+  <div class="heart">❤️</div>
+  <div class="heart">💗</div>
+  <div class="heart">💕</div>
+  <div class="heart">❤️</div>
+  <div class="heart">💗</div>
+  <!-- INÍCIO -->
+  <section id="inicio">
+    <div class="container">
+      <div class="small">Uma surpresa para o amor da minha vida</div>
+      <h1>Eloa</h1>
+      <p class="subtitle">
+        Talvez você tenha recebido apenas um link...
+        mas dentro dele existe um pedacinho do meu coração.
+      </p>
+      <div class="scroll">
+        ↓ Desce um pouquinho ↓
+      </div>
+    </div>
+  </section>
+  <!-- GATINHOS -->
+  <section class="cats-section">
+    <div class="container">
+      <div class="cats">
+        <div class="cat left">
+          <div class="ear one"></div>
+          <div class="ear two"></div>
+          <div class="eye one"></div>
+          <div class="eye two"></div>
+          <div class="nose"></div>
+          <div class="heart-cat">♥</div>
+        </div>
+        <div class="cat right">
+          <div class="ear one"></div>
+          <div class="ear two"></div>
+          <div class="eye one"></div>
+          <div class="eye two"></div>
+          <div class="nose"></div>
+          <div class="heart-cat">♥</div>
+        </div>
+      </div>
+      <h2 class="love-title">
+        Nós dois. ❤️
+      </h2>
+      <p class="text">
+        Assim como esses dois gatinhos, eu só quero estar
+        pertinho de você. Porque, no fim das contas,
+        meu lugar favorito é onde você está.
+      </p>
+    </div>
+  </section>
+  <!-- HISTÓRIA -->
+  <section id="historia">
+    <div class="container">
+      <div class="small">Nossa história</div>
+      <div class="card">
+        <p>
+          Tudo começou de um jeito tão aleatório...
+          uma conversa normal entre duas pessoas que
+          ainda nem imaginavam o que estava por vir.
+        </p>
+        <p>
+          Aos poucos, a gente foi se aproximando.
+          E, sem eu perceber, você começou a ocupar
+          um espaço enorme dentro de mim.
+        </p>
+        <p>
+          Só que eu errei. Fui um babaca com você e,
+          por causa disso, a gente acabou se afastando.
+          E naquele momento eu pensei que talvez tivesse
+          perdido você de vez.
+        </p>
+        <p>
+          Foi aí que eu percebi o quanto você era importante
+          para mim. Eu não queria simplesmente aceitar
+          a ideia de viver sem você.
+        </p>
+        <p>
+          Mas a nossa história ainda não tinha terminado.
+          A gente conversou, se entendeu e eu tive a chance
+          de pedir você em namoro.
+        </p>
+        <p>
+          E o momento em que você aceitou...
+          e ficou sem acreditar...
+          virou um dos momentos mais especiais
+          da minha vida.
+        </p>
+        <p>
+          Hoje eu olho para tudo isso e só consigo pensar:
+          <span class="highlight">
+            ainda bem que a nossa história continuou.
+          </span>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- TEMPO -->
+  <section id="tempo">
+    <div class="container">
+      <div class="small">Desde 04 de agosto de 2026</div>
+      <h2 class="love-title">
+        Quanto tempo eu tenho a sorte de ter você? ❤️
+      </h2>
+      <div class="counter">
+        <div class="time-box">
+          <span class="number" id="days">0</span>
+          <span class="label">Dias</span>
+        </div>
+        <div class="time-box">
+          <span class="number" id="hours">0</span>
+          <span class="label">Horas</span>
+        </div>
+        <div class="time-box">
+          <span class="number" id="minutes">0</span>
+          <span class="label">Minutos</span>
+        </div>
+        <div class="time-box">
+          <span class="number" id="seconds">0</span>
+          <span class="label">Segundos</span>
+        </div>
+      </div>
+      <p class="text" style="margin-top:35px;">
+        E eu espero que esse contador continue aumentando
+        por muitos e muitos anos.
+      </p>
+    </div>
+  </section>
+  <!-- DECLARAÇÃO -->
+  <section id="declaracao">
+    <div class="container">
+      <div class="small">De mim para você</div>
+      <h2 class="love-title">
+        Minha declaração
+      </h2>
+      <div class="card">
+        <p class="quote">
+          Eloa, talvez eu nunca consiga colocar em palavras
+          tudo aquilo que eu sinto por você.
+        </p>
+        <p class="quote">
+          Você faz os meus dias mais felizes.
+          Você é uma pessoa incrível, tem uma voz linda,
+          é moreninha, cacheada e, para mim,
+          simplesmente perfeita.
+        </p>
+        <p class="quote">
+          Hoje, quando eu penso em felicidade,
+          eu penso em você.
+        </p>
+        <p class="quote">
+          Eu não consigo imaginar a minha vida sem você.
+          Você está nos meus planos, nos meus sonhos
+          e em tudo aquilo que eu quero construir daqui
+          para frente.
+        </p>
+        <p class="quote">
+          Eu amo você pelo que você é,
+          pelo que você me faz sentir
+          e por todos os momentos que ainda vamos viver.
+        </p>
+        <p class="quote">
+          Depois de tudo que aconteceu entre nós,
+          eu só tenho uma certeza:
+          <span class="highlight">
+            eu escolheria você de novo.
+          </span>
+        </p>
+        <p class="quote">
+          Eu escolho você hoje, amanhã e todos os dias
+          da minha vida.
+        </p>
+        <p class="quote">
+          Eu te amo com tudo que eu sou.
+          E, se depender de mim,
+          o nosso namoro só vai acabar no altar.
+        </p>
+        <div class="signature">
+          Com todo meu amor,<br>
+          eu. ❤️
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MÚSICA -->
+  <section id="musica">
+    <div class="container">
+      <div class="small">Nossa música</div>
+      <h2 class="love-title">
+        Essa é pra você 🎵
+      </h2>
+      <p class="text">
+        Porque algumas músicas deixam de ser apenas músicas.
+        Elas passam a lembrar uma pessoa.
+        E essa me faz lembrar de você.
+      </p>
+      <!--
+        Troque o link abaixo pelo link da música que vocês usam.
+        Aqui está configurado para uma busca no YouTube.
+      -->
+      <a
+        class="music-button"
+        href="https://www.youtube.com/results?search_query=Nosso+Plano+Tribo+da+Periferia"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🎵 Ouvir "Nosso Plano"
+      </a>
+    </div>
+  </section>
+  <!-- FINAL -->
+  <section id="final">
+    <div class="container">
+      <div class="final-text">
+        Eloa,<br>
+        <span>eu escolho você.</span>
+      </div>
+      <p class="forever">
+        Hoje.<br>
+        Amanhã.<br>
+        Em todos os dias que ainda virão.
+      </p>
+      <p class="forever">
+        Eu te amo. ❤️
+      </p>
+      <p class="forever">
+        E se depender de mim...<br>
+        <strong>nossa história só termina no altar.</strong>
+      </p>
+    </div>
+  </section>
+  <footer>
+    Feito especialmente para Eloa ❤️
+  </footer>
+  <script>
+    /*
+      DATA DO INÍCIO DO NAMORO
+      04/08/2026
+    */
+    const inicio = new Date("2026-08-04T00:00:00");
+    function atualizarContador() {
+      const agora = new Date();
+      let diferenca = agora - inicio;
+      if (diferenca < 0) {
+        diferenca = 0;
+      }
+      const segundosTotais =
+        Math.floor(diferenca / 1000);
+      const dias =
+        Math.floor(segundosTotais / 86400);
+      const horas =
+        Math.floor((segundosTotais % 86400) / 3600);
+      const minutos =
+        Math.floor((segundosTotais % 3600) / 60);
+      const segundos =
+        segundosTotais % 60;
+      document.getElementById("days").textContent = dias;
+      document.getElementById("hours").textContent = horas;
+      document.getElementById("minutes").textContent = minutos;
+      document.getElementById("seconds").textContent = segundos;
+    }
+    atualizarContador();
+    setInterval(atualizarContador, 1000);
+  </script>
+</body>
+</html>
